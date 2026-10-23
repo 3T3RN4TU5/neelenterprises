@@ -55,8 +55,8 @@ const configured = Boolean(SUPABASE_URL && SUPABASE_ANON);
       </section>
     </main>
 
-    {configured && (
-      <script type="module">
+    <script>
+      if (import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_SUPABASE_ANON_KEY) {
         const { createClient } = await import('@supabase/supabase-js');
         const SUPABASE_URL = import.meta.env.PUBLIC_SUPABASE_URL as string;
         const SUPABASE_ANON = import.meta.env.PUBLIC_SUPABASE_ANON_KEY as string;
@@ -131,7 +131,7 @@ const configured = Boolean(SUPABASE_URL && SUPABASE_ANON);
               <p class="mt-2 font-mono text-xs text-[#9aa1a8]">
                 ${esc(enq.email)} · ${esc(enq.phone)} · ${new Date(enq.created_at).toLocaleString()}
               </p>`;
-            card.querySelector('div')!.after(statusSelect);
+            card.insertBefore(statusSelect, card.querySelector('div')!.nextSibling);
             list.appendChild(card);
           }
         }
@@ -140,7 +140,7 @@ const configured = Boolean(SUPABASE_URL && SUPABASE_ANON);
           return String(s ?? '').replace(/[&<>"']/g, (c) =>
             ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string);
         }
-      </script>
-    )}
+      }
+    </script>
   </body>
 </html>
