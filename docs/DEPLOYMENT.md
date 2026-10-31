@@ -2,7 +2,7 @@
 
 ## Source control
 
-- Remote: `https://github.com/Jeevan2410/neelenterprises.git` (branch `main`, first push 2026-09-11).
+- Remote: `https://github.com/3T3RN4TU5/neelenterprises.git` (branch `main`, first push 2026-09-11).
 - Branching: `main` is the integration branch; feature branches for larger changes.
 
 ## Hosting (planned)
